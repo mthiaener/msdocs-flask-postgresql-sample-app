@@ -6,7 +6,7 @@ from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf.csrf import CSRFProtect
 
-
+# 2) Create your Flask Application
 app = Flask(__name__, static_folder='static')
 csrf = CSRFProtect(app)
 
@@ -20,13 +20,17 @@ else:
     print("Loading config.production.")
     app.config.from_object('azureproject.production')
 
+# 3) Set the DATABASE URI
 app.config.update(
     SQLALCHEMY_DATABASE_URI=app.config.get('DATABASE_URI'),
     SQLALCHEMY_TRACK_MODIFICATIONS=False,
 )
 
-# Initialize the database connection
+# 1) Initialize your DATABASE
 db = SQLAlchemy(app)
+
+# 4) Initialize a Flask App to use for the DATABASE
+db.init_app(app)
 
 # Enable Flask-Migrate commands "flask db init/migrate/upgrade" to work
 migrate = Migrate(app, db)
