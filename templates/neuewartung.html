@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block title %}
+<h1 style="width: 100%"> Neue Wartung hinzufügen</h1>
+{% endblock %}
+{% block content %}
+
+    <form method="post">
+        <p>
+            <label for="bike">Fahrrad</label>
+            <select id="dropdown"  name="bike">
+                <option value="RoseProSL">RoseProSL</option>
+                <option value="SuperSix">SuperSix</option>
+                <option value="Merckx">Merckx</option>
+                <option value="deRosa">deRosa</option>
+                <option value="Colnago">Colnago</option>
+            </select>
+        </p>
+
+        <p>
+            <label for="datum">Datum und Zeit</label>
+            <input type="datetime" name="datum"
+                   placeholder="Datum und Zeit">
+            </input>
+        </p>
+
+        <p>
+            <label for="service">Wartung</label>
+            <select id="dropdown"  name="service">
+                <option value="heiß">heiß</option>
+                <option value="kalt">kalt</option>
+                <option value="Sonstiges">Sonstiges</option>
+            </select>
+        </p>
+
+        <p>
+            <label for="notes">Notizen</label>
+            <input type="string" name="notes"
+                   placeholder="Andere Wartung">
+            </input>
+        </p>
+        <p>
+            <button type="submit">Submit</button>
+        </p>
+    </form>
+{% endblock %}

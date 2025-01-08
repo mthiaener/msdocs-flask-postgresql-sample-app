@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block title %}
+Fahrten 
+{% endblock %}
+{% block content %}
+<p>Fahrt löschen</p>
+<form method="post">
+  <p>
+      <label for="lfndnr">Laufende Nr. </label>
+      <input type="Integer" name="lfndnr"
+             placeholder="Laufende Nr.">
+      </input>
+  </p>
+  <p>
+      <button type="submit">Submit</button>
+  </p>
+</form>
+<p></p>
+<p>Liste der Fahrten</p>
+<p></p>
+<table class="table">
+    <tr class="table__header">
+      {% for header in headings %}
+      <th>{{header}}</th> 
+      {% endfor %}  
+    </tr>
+    <tr class="table__row">
+      {% for row in data %}
+        {% for cell in row %}
+          {% if loop.index == 6 %}
+            <td> <a href="https://www.strava.com/activities/{{ cell }}" target="_blank">{{ cell }}</a></td>
+          {% else %}
+            <td class="table__cell">{{ cell }}</td>
+          {% endif %}
+        {% endfor %}
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

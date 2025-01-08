@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='site.css')}}" />
+    </head>
+
+    <body>
+        <div class="navbar">
+            <a href="{{ url_for('home') }}" class="navbar-brand">Home</a>
+            <a href="{{ url_for('neuefahrt') }}" class="navbar-item">Fahrt hinzufügen</a>
+            <a href="{{ url_for('fahrten') }}" class="navbar-item">Fahrten</a>
+            <a href="{{ url_for('neuewartung') }}" class="navbar-item">Wartung hinzufügen</a>
+            <a href="{{ url_for('wartung') }}" class="navbar-item">Wartung</a>
+            <a href="{{ url_for('bikes') }}" class="navbar-item">Fahrräder</a>
+        </div>
+        <div class="body-content">
+            {% block content %}
+            {% endblock %}
+            <hr/>
+            <footer>
+                <p>&copy; Michael Thiäner 2024</p>
+            </footer>
+        </div>
+    </body>
+</html>

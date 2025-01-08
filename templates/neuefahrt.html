@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block title %}
+Neue Fahrt hinzufügen
+{% endblock %}
+{% block content %}
+
+    <form method="post">
+        <p>
+            <label for="bike">Fahrrad</label>
+            <select id="dropdown"  name="bike">
+                <option value="RoseProSL">RoseProSL</option>
+                <option value="SuperSix">SuperSix</option>
+                <option value="Merckx">Merckx</option>
+                <option value="deRosa">deRosa</option>
+                <option value="Colnago">Colnago</option>
+            </select>
+        </p>
+
+        <p>
+            <label for="datum">Datum und Zeit</label>
+            <input type="datetime" name="datum"
+                   placeholder="Datum und Zeit">
+            </input>
+        </p>
+
+        <p>
+            <label for="strecke">Strecke in km</label>
+            <input type="number" name="strecke"
+                   placeholder="Strecke">
+            </input>
+        </p>
+
+        <p>
+            <label for="wetter">Wetter</label>
+            <select id="dropdown" name="wetter">
+                <option value="gut">gut</option>
+                <option value="mittel">mittel</option>
+                <option value="schlecht">schlecht</option>
+            </select>
+        </p>
+
+        <p>
+            <label for="strava_id">Strava ID</label>
+            <input type="text" name="strava_id"
+                   placeholder="Strava ID">
+            </input>
+        </p>
+        <p>
+            <button type="submit">Submit</button>
+        </p>
+    </form>
+{% endblock %}
